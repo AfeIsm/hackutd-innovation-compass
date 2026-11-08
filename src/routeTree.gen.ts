@@ -10,11 +10,35 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CanIBuyRouteImport } from './routes/can-i-buy'
+import { Route as FriendsRouteImport } from './routes/friends'
+import { Route as HouseholdRouteImport } from './routes/household'
+import { Route as HuddlesRouteImport } from './routes/huddles'
 import { Route as MoneyRouteImport } from './routes/money'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CanIBuyRoute = CanIBuyRouteImport.update({
+  id: '/can-i-buy',
+  path: '/can-i-buy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FriendsRoute = FriendsRouteImport.update({
+  id: '/friends',
+  path: '/friends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HouseholdRoute = HouseholdRouteImport.update({
+  id: '/household',
+  path: '/household',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HuddlesRoute = HuddlesRouteImport.update({
+  id: '/huddles',
+  path: '/huddles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MoneyRoute = MoneyRouteImport.update({
@@ -25,27 +49,51 @@ const MoneyRoute = MoneyRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/can-i-buy': typeof CanIBuyRoute
+  '/friends': typeof FriendsRoute
+  '/household': typeof HouseholdRoute
+  '/huddles': typeof HuddlesRoute
   '/money': typeof MoneyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/can-i-buy': typeof CanIBuyRoute
+  '/friends': typeof FriendsRoute
+  '/household': typeof HouseholdRoute
+  '/huddles': typeof HuddlesRoute
   '/money': typeof MoneyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/can-i-buy': typeof CanIBuyRoute
+  '/friends': typeof FriendsRoute
+  '/household': typeof HouseholdRoute
+  '/huddles': typeof HuddlesRoute
   '/money': typeof MoneyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/money'
+  fullPaths:
+    '/' | '/can-i-buy' | '/friends' | '/household' | '/huddles' | '/money'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/money'
-  id: '__root__' | '/' | '/money'
+  to: '/' | '/can-i-buy' | '/friends' | '/household' | '/huddles' | '/money'
+  id:
+    | '__root__'
+    | '/'
+    | '/can-i-buy'
+    | '/friends'
+    | '/household'
+    | '/huddles'
+    | '/money'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CanIBuyRoute: typeof CanIBuyRoute
+  FriendsRoute: typeof FriendsRoute
+  HouseholdRoute: typeof HouseholdRoute
+  HuddlesRoute: typeof HuddlesRoute
   MoneyRoute: typeof MoneyRoute
 }
 
@@ -56,6 +104,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/can-i-buy': {
+      id: '/can-i-buy'
+      path: '/can-i-buy'
+      fullPath: '/can-i-buy'
+      preLoaderRoute: typeof CanIBuyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/friends': {
+      id: '/friends'
+      path: '/friends'
+      fullPath: '/friends'
+      preLoaderRoute: typeof FriendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/household': {
+      id: '/household'
+      path: '/household'
+      fullPath: '/household'
+      preLoaderRoute: typeof HouseholdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/huddles': {
+      id: '/huddles'
+      path: '/huddles'
+      fullPath: '/huddles'
+      preLoaderRoute: typeof HuddlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/money': {
@@ -70,6 +146,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CanIBuyRoute: CanIBuyRoute,
+  FriendsRoute: FriendsRoute,
+  HouseholdRoute: HouseholdRoute,
+  HuddlesRoute: HuddlesRoute,
   MoneyRoute: MoneyRoute,
 }
 export const routeTree = rootRouteImport
