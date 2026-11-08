@@ -12,6 +12,13 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { Toaster } from "@/components/ui/sonner";
+import { AuthProvider } from "@/lib/auth";
+import { WalletProvider } from "@/components/wallet/WalletContext";
+import { WalletScene } from "@/components/wallet/WalletScene";
+import { LoginPanel } from "@/components/wallet/LoginPanel";
+import { FlightLayer } from "@/components/wallet/FlightLayer";
+import { Chrome } from "@/components/wallet/Chrome";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -91,6 +98,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,
@@ -135,7 +145,18 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <AuthProvider>
+        <WalletProvider>
+          <Chrome />
+          <WalletScene />
+          <main className="app-main">
+            <Outlet />
+          </main>
+          <FlightLayer />
+          <LoginPanel />
+          <Toaster position="bottom-center" />
+        </WalletProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
