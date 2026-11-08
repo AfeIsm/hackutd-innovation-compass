@@ -1,16 +1,18 @@
 import { CARDS, type CardId } from "./cards";
+import banknote from "@/assets/wallet-banknote.jpg";
 
 /** The visual face of a navigation object. Shared by the slot card, the flying card and page headers. */
 export function CardFace({ id }: { id: CardId }) {
   const card = CARDS[id];
   if (id === "buy") {
     return (
-      <div className={`card-face ${card.face}`}>
-        <div className="note-border" aria-hidden />
-        <span className="note-corner note-corner-l" aria-hidden>WW</span>
-        <span className="card-title font-display">{card.title}</span>
-        <span className="note-seal" aria-hidden />
-        <span className="note-corner note-corner-r" aria-hidden>WW</span>
+      <div className={`card-face ${card.face} cash-face`}>
+        <div className="cash-paper" aria-hidden="true">
+          <span className="cash-half cash-left"><img src={banknote} alt="" width={1536} height={512} /></span>
+          <span className="cash-half cash-right"><img src={banknote} alt="" width={1536} height={512} /></span>
+          <span className="cash-crease" />
+        </div>
+        <span className="card-title cash-title font-display">{card.title}</span>
       </div>
     );
   }
@@ -28,7 +30,7 @@ export function CardFace({ id }: { id: CardId }) {
     <div className={`card-face ${card.face}`}>
       <span className="card-title font-display">{card.title}</span>
       <span className="card-brand">
-        {id === "money" ? "PNC-inspired" : id === "friends" ? "Capital One-inspired" : "NVIDIA-inspired"}
+        {id === "money" ? "PNC-inspired" : id === "friends" ? "Capital One-inspired" : "HackUTD · 2026"}
       </span>
       <span className="card-chip" aria-hidden />
       <span className="card-number" aria-hidden>•••• •••• •••• 2026</span>

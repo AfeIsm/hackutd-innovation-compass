@@ -245,7 +245,7 @@
 
 /* ===== Wallet Whisperer design system ===== */
 :root {
-  --background: oklch(0.82 0.008 85);
+  --background: oklch(0.76 0.016 155);
   --foreground: oklch(0.22 0.015 60);
   --card: oklch(0.99 0.004 85);
   --card-foreground: oklch(0.22 0.015 60);
@@ -259,8 +259,13 @@
   --accent: oklch(0.93 0.02 75);
   --accent-foreground: oklch(0.22 0.015 60);
 
-  --stage-light: oklch(0.87 0.006 85);
-  --stage-dark: oklch(0.73 0.008 85);
+  --stage-light: oklch(0.83 0.018 155);
+  --stage-dark: oklch(0.67 0.022 155);
+  --stage-line: oklch(0.38 0.024 155 / 0.035);
+  --pocket-lettering: oklch(0.78 0.045 75);
+  --hack-surface: oklch(0.97 0.006 150);
+  --hack-line: oklch(0.84 0.02 150);
+  --cash-fold-shadow: oklch(0.22 0.04 145 / 0.35);
   --button-sleek: oklch(0.24 0.008 260);
   --shadow-sleek: 0 8px 20px -8px oklch(0.15 0 0 / 0.4);
   --leather: oklch(0.34 0.055 42);
@@ -318,7 +323,9 @@
 
 html, body { font-family: var(--font-sans); }
 body {
-  background: radial-gradient(ellipse at 50% 35%, var(--stage-light), var(--stage-dark) 80%) fixed;
+  background-color: var(--background);
+  background-image: repeating-linear-gradient(0deg, var(--stage-line) 0 1px, transparent 1px 4px), linear-gradient(145deg, var(--stage-light), var(--background) 55%, var(--stage-dark));
+  background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -370,13 +377,13 @@ body {
 .start-btn:hover { transform: translateY(-2px); background: var(--foreground); }
 .start-btn:active { transform: translateY(1px); }
 .falling-bills { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.falling-bill { position: absolute; width: 64px; top: -100px; left: 5%; opacity: 0.24; animation: bill-fall 18s linear infinite; }
+.falling-bill { position: absolute; width: 82px; top: -100px; left: 5%; opacity: 0.48; animation: bill-fall 18s linear infinite; }
 .falling-bill svg { width: 100%; display: block; animation: bill-flutter 5s ease-in-out infinite alternate; }
 .bill-paper { fill: var(--note-light); stroke: var(--note-ink); stroke-width: 1; }
 .bill-border { fill: none; stroke: var(--note-ink); stroke-width: 0.8; }
 .bill-engraving { fill: none; stroke: var(--note-ink); stroke-width: 1.3; }
-.falling-bill:nth-child(2n) { width: 48px; animation-duration: 22s; }
-.falling-bill:nth-child(3n) { width: 76px; animation-duration: 26s; }
+.falling-bill:nth-child(2n) { width: 64px; animation-duration: 22s; }
+.falling-bill:nth-child(3n) { width: 94px; animation-duration: 26s; }
 .falling-bill:nth-child(2) { left: 13%; animation-delay: -12s; }
 .falling-bill:nth-child(3) { left: 23%; animation-delay: -4s; }
 .falling-bill:nth-child(4) { left: 31%; animation-delay: -18s; }
@@ -416,7 +423,7 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 .id-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted-foreground); }
 .id-value { font-size: 1.3rem; font-weight: 600; margin-top: -8px; }
 .flap-pocket { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; border-radius: 0 0 6px 22px; background: inherit; background-image: linear-gradient(180deg, var(--leather-light), var(--leather) 30%, var(--leather-dark)); box-shadow: 0 -6px 12px -4px var(--emboss-lo), inset 0 1px 0 var(--emboss-hi); display: grid; place-items: center; }
-.pocket-emboss { color: color-mix(in oklab, var(--leather) 90%, black); text-shadow: 0 1px 0 var(--emboss-hi); font-size: 1.05rem; font-style: italic; }
+.pocket-emboss { color: var(--pocket-lettering); text-shadow: 0 -1px 1px var(--emboss-lo), 0 1px 0 var(--emboss-hi); font-size: 1.05rem; font-style: italic; font-weight: 600; }
 
 /* ---- right interior ---- */
 .cash-well { position: absolute; left: 20px; right: 20px; top: 0; height: 120px; background: linear-gradient(180deg, var(--leather-edge), var(--leather-dark)); border-radius: 0 0 10px 10px; opacity: 0.6; }
@@ -434,7 +441,7 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 
 /* ---- card faces ---- */
 .card-face { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; padding: 14px 20px; color: var(--paper); }
-.card-title { position: relative; z-index: 2; display: block; font-size: 1.55rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; transition: letter-spacing 200ms, text-shadow 200ms; }
+.card-title { position: relative; z-index: 2; display: block; font-size: 1.55rem; font-weight: 600; line-height: 1.1; letter-spacing: 0; transition: text-shadow 200ms; }
 .card-brand { position: absolute; right: 18px; top: 18px; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.8; z-index: 2; }
 .card-chip { position: absolute; left: 22px; top: 92px; width: 46px; height: 34px; border-radius: 7px; background: linear-gradient(135deg, oklch(0.88 0.08 85), oklch(0.7 0.09 75)); box-shadow: inset 0 0 0 1px oklch(0.6 0.08 70 / 0.6); }
 .card-chip::after { content: ""; position: absolute; inset: 8px 14px; border: 1px solid oklch(0.6 0.08 70 / 0.6); border-radius: 3px; }
@@ -445,9 +452,11 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 .face-money .card-title { color: var(--paper); }
 .face-friends { background: linear-gradient(135deg, var(--cap-navy), var(--cap-deep)); }
 .face-friends .card-swoosh { border: 14px solid var(--cap-red); background: transparent; width: 300px; height: 120px; right: -40px; bottom: 50px; border-radius: 50%; border-bottom-color: transparent; border-left-color: transparent; transform: rotate(-12deg); }
-.face-huddles { background: linear-gradient(140deg, var(--nv-charcoal), var(--nv-black)); }
-.face-huddles .card-title { color: var(--nv-green); }
-.face-huddles .card-swoosh { background: repeating-linear-gradient(45deg, color-mix(in oklab, var(--nv-green) 35%, transparent) 0 2px, transparent 2px 14px); border-radius: 0; width: 200px; height: 300px; right: -20px; bottom: -40px; }
+.face-huddles { background: var(--nv-charcoal); border-top: 4px solid var(--hack-accent); }
+.face-huddles .card-title { color: var(--paper); }
+.face-huddles .card-brand { color: var(--hack-accent); opacity: 1; letter-spacing: 0; font-weight: 700; }
+.face-huddles .card-chip { background: var(--hack-accent); }
+.face-huddles .card-swoosh { background: repeating-linear-gradient(0deg, color-mix(in oklab, var(--nv-green) 25%, transparent) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, color-mix(in oklab, var(--nv-green) 25%, transparent) 0 1px, transparent 1px 24px); border-radius: 0; width: 50%; height: 100%; right: 0; bottom: 0; border-left: 3px solid var(--hack-accent); transform: skewX(-12deg); }
 .face-household { background: linear-gradient(170deg, var(--hack-cream), oklch(0.93 0.025 80)); color: var(--hack-ink); }
 .face-household .card-title { color: var(--hack-ink); }
 .biz-org { position: absolute; left: 20px; top: 92px; font-weight: 700; font-size: 0.85rem; color: var(--hack-accent); letter-spacing: 0.02em; }
@@ -459,6 +468,20 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 .note-corner { position: absolute; top: 12px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--note-ink); }
 .note-corner-l { left: 14px; } .note-corner-r { right: 14px; }
 .note-seal { position: absolute; left: 50%; top: 70px; width: 54px; height: 54px; margin-left: -27px; border-radius: 50%; border: 2px solid color-mix(in oklab, var(--note-ink) 45%, transparent); }
+.cash-face { overflow: visible; padding: 0; background: transparent; perspective: 900px; }
+.cash-paper { position: absolute; inset: 0; transform-style: preserve-3d; }
+.cash-half { position: absolute; top: 0; width: 50%; height: 100%; overflow: hidden; backface-visibility: hidden; transition: transform 420ms cubic-bezier(0.3, 0.7, 0.2, 1), filter 420ms; }
+.cash-half img { position: absolute; top: 0; width: 200%; height: 100%; max-width: none; object-fit: fill; }
+.cash-left { left: 0; transform-origin: right center; }
+.cash-right { right: 0; transform-origin: left center; }
+.cash-right img { right: 0; }
+.cash-crease { position: absolute; left: calc(50% - 1px); top: 0; width: 2px; height: 100%; background: var(--cash-fold-shadow); opacity: 0.4; }
+.face-buy .cash-title { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); margin: 0; padding: 5px 18px; border: 1px solid var(--note-ink); background: var(--note-light); white-space: nowrap; font-size: 1.45rem; box-shadow: var(--shadow-paper); }
+.nav-object.is-cash .cash-left, .flight-card.is-cash[data-phase="start"] .cash-left, .flight-card.is-cash[data-phase="insert"] .cash-left { transform: rotateY(24deg); filter: brightness(0.9); }
+.nav-object.is-cash .cash-right, .flight-card.is-cash[data-phase="start"] .cash-right, .flight-card.is-cash[data-phase="insert"] .cash-right { transform: rotateY(-24deg); }
+.flight-card.is-cash[data-phase="shrink"] .cash-left { transform: rotateY(45deg); filter: brightness(0.85); }
+.flight-card.is-cash[data-phase="shrink"] .cash-right { transform: rotateY(-45deg); }
+.page-buy .page-header-face .cash-title { display: none; }
 
 /* ---- side toggle (phones) ---- */
 .side-toggle { padding: 10px 18px; border-radius: 999px; background: var(--paper); font-weight: 700; box-shadow: var(--shadow-paper); }
@@ -466,7 +489,7 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 /* ---- flight ---- */
 .flight-layer { position: fixed; inset: 0; z-index: 55; pointer-events: none; }
 .flight-card { position: fixed; border-radius: 14px; box-shadow: 0 30px 60px -20px oklch(0.1 0 0 / 0.55); transition-property: top, left, width, height, transform, opacity, border-radius; transition-timing-function: cubic-bezier(0.5, 0, 0.2, 1); overflow: hidden; }
-.flight-card.is-cash { border-radius: 4px; }
+.flight-card.is-cash { border-radius: 4px; overflow: visible; perspective: 900px; }
 
 /* ---- login panel ---- */
 .login-overlay { position: fixed; inset: 0; z-index: 70; background: oklch(0.2 0.02 40 / 0.25); backdrop-filter: blur(1px); animation: fade-in 200ms ease; }
@@ -520,7 +543,22 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 .page-header-inner { position: relative; z-index: 2; padding: 24px 32px 32px; color: var(--paper); }
 .page-household .page-header-inner, .page-buy .page-header-inner { color: var(--hack-ink); }
 .page-buy .page-header-inner { color: var(--note-ink); }
-.page-huddles .page-title { color: var(--nv-green); }
+.page-huddles .page-title { color: var(--paper); font-family: var(--font-sans); font-weight: 700; letter-spacing: 0; font-size: 3rem; }
+.page-huddles .page-eyebrow { color: var(--hack-accent); opacity: 1; letter-spacing: 0; }
+.page-huddles .page-body { background: var(--hack-surface); }
+.page-huddles .page-header-face .card-chip { display: none; }
+.huddles-layout { display: grid; grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.6fr); gap: 32px; }
+.huddles-plans { border-right: 1px solid var(--hack-line); padding-right: 28px; }
+.huddles-section-heading { display: flex; align-items: center; gap: 10px; padding-bottom: 18px; border-bottom: 2px solid var(--hack-accent); }
+.huddles-section-heading > svg { width: 22px; height: 22px; color: var(--hack-accent); }
+.huddles-empty { padding: 40px 0; }
+.huddles-empty > svg { width: 44px; height: 44px; color: var(--good); margin-bottom: 20px; }
+.huddles-form .field-input { min-width: 0; width: 100%; border-radius: 6px; }
+.huddles-form .switch:checked { background: var(--good); }
+.huddles-create { background: var(--nv-charcoal); color: var(--paper); border-bottom: 3px solid var(--hack-accent); height: 46px; padding: 0 18px; flex: none; }
+.huddles-create:hover { background: var(--nv-black); }
+@media (max-width: 900px) { .huddles-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } .huddles-plans { border-right: 0; padding-right: 0; } .huddles-empty { padding: 24px 0; } }
+@media (max-width: 480px) { .page-huddles .page-title { font-size: 2.5rem; } }
 .back-btn { padding: 8px 16px; border-radius: 999px; font-weight: 700; background: oklch(1 0 0 / 0.16); backdrop-filter: blur(6px); border: 1px solid oklch(1 0 0 / 0.3); color: inherit; }
 .page-household .back-btn, .page-buy .back-btn { background: oklch(1 0 0 / 0.5); border-color: currentColor; }
 .back-btn:hover { background: oklch(1 0 0 / 0.28); }
@@ -554,6 +592,7 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
   .wallet, .wallet-flap { transition-duration: 200ms !important; }
   .nav-object, .id-card, .start-btn { transition-duration: 80ms; }
   .id-card.is-filled { animation: none; }
+  .cash-half { transition: none; transform: none !important; filter: none !important; }
 }
 .pockets { position: absolute; inset: 0; clip-path: inset(-90px -40px 0 -40px round 0 0 22px 6px); }
 .btn-ghost { color: var(--foreground); }
