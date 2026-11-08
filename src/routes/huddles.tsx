@@ -4,7 +4,7 @@ import { PageShell } from "@/components/wallet/PageShell";
 import { HOUSEHOLD_MEMBERS } from "@/lib/demo-data";
 import { formatCents, parseDollarsToCents } from "@/lib/money";
 import { Button } from "@/components/ui/button";
-import { Flag, Plus, Users } from "lucide-react";
+import { Plus } from "lucide-react";
 
 export const Route = createFileRoute("/huddles")({
   head: () => ({
@@ -42,12 +42,11 @@ function HuddlesPage() {
   };
 
   return (
-    <PageShell id="huddles" eyebrow="HackUTD 2026 · Group purchases" title="Huddles" intro="Big plans. One team.">
-      <div className="huddles-layout">
-        <section className="huddles-plans">
-          <div className="huddles-section-heading"><Flag aria-hidden="true" /><h2 className="section-title font-display">Your huddles</h2></div>
+    <PageShell id="huddles" eyebrow="Group purchases" title="Huddles">
+      <div className="grid gap-6">
+        <section className="paper-card">
           {huddles.length === 0 ? (
-            <div className="huddles-empty"><Users aria-hidden="true" /><h3 className="font-display text-xl">The next big plan starts here.</h3><p className="mt-2 text-sm text-muted-foreground">No huddles yet.</p></div>
+            <p>No huddles yet. Start one below.</p>
           ) : (
             <ul className="divide-y divide-border">
               {huddles.map((h, i) => (
@@ -59,8 +58,8 @@ function HuddlesPage() {
             </ul>
           )}
         </section>
-        <form className="huddles-form" onSubmit={submit} noValidate>
-          <div className="huddles-section-heading"><Plus aria-hidden="true" /><h2 className="section-title font-display">Start a huddle</h2></div>
+        <form className="paper-card" onSubmit={submit} noValidate>
+          <h2 className="section-title font-display">Start a huddle</h2>
           <div className="mt-4 grid gap-3 lg:grid-cols-[1.6fr_1fr_1fr]">
             <label className="grid gap-1 text-sm font-semibold">What are you planning?<input className="field-input font-normal" placeholder="Beach weekend" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} /></label>
             <label className="grid gap-1 text-sm font-semibold">Total cost<input className="field-input font-normal" inputMode="decimal" placeholder="1200" value={f.cost} onChange={(e) => setF({ ...f, cost: e.target.value })} /></label>
@@ -82,7 +81,7 @@ function HuddlesPage() {
           {err && <p role="alert" className="mt-3 text-sm text-risk">{err}</p>}
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm text-muted-foreground">Each payer pledges privately. Nobody sees amounts until everyone has committed.</p>
-            <Button type="submit" className="huddles-create"><Plus aria-hidden="true" />Create huddle</Button>
+            <Button type="submit" className="nvidia-create"><Plus aria-hidden="true" />Create huddle</Button>
           </div>
         </form>
       </div>
