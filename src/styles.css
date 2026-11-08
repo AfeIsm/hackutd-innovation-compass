@@ -355,6 +355,7 @@ body {
 .flap-outside { transform: rotateY(180deg) translateZ(1px); border-radius: 6px 22px 22px 6px; }
 .wallet-fold { position: absolute; left: calc(50% - 6px); top: 4px; bottom: 4px; width: 12px; background: linear-gradient(90deg, transparent, var(--leather-edge) 45%, var(--leather-edge) 55%, transparent); opacity: 0.75; pointer-events: none; z-index: 30; transition: opacity 400ms; }
 .wallet[data-open="false"] .wallet-fold { opacity: 0; }
+.wallet[data-open="false"] .wallet-right .pockets { visibility: hidden; }
 
 .leather {
   background-color: var(--leather);
@@ -558,7 +559,7 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
 .huddles-create { background: var(--nv-charcoal); color: var(--paper); border-bottom: 3px solid var(--hack-accent); height: 46px; padding: 0 18px; flex: none; }
 .huddles-create:hover { background: var(--nv-black); }
 @media (max-width: 900px) { .huddles-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } .huddles-plans { border-right: 0; padding-right: 0; } .huddles-empty { padding: 24px 0; } }
-@media (max-width: 480px) { .page-huddles .page-title { font-size: 2.5rem; } }
+@media (max-width: 480px) { .page-huddles .page-title { font-size: 2.5rem; } .page-huddles .card-swoosh { width: 28%; opacity: 0.55; } }
 .back-btn { padding: 8px 16px; border-radius: 999px; font-weight: 700; background: oklch(1 0 0 / 0.16); backdrop-filter: blur(6px); border: 1px solid oklch(1 0 0 / 0.3); color: inherit; }
 .page-household .back-btn, .page-buy .back-btn { background: oklch(1 0 0 / 0.5); border-color: currentColor; }
 .back-btn:hover { background: oklch(1 0 0 / 0.28); }

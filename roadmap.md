@@ -1,5 +1,5 @@
 # Wallet Whisperer redesign
-- [ ] Refine falling bills, background, folding cash, HackUTD Huddles and interior lettering
+- [x] Refine falling bills, background, folding cash, HackUTD Huddles and interior lettering
 - [x] Widen and refine leather wallet, install home logo and favicon, add landing falling bills, move Start Saving below wallet, darken background
 - [x] Closed wallet landing, unfold, ID-card login/signup, open-wallet hub with five navigation objects
 - [x] Card lift, extraction, expansion into page, and return to slot; logout closes the wallet
