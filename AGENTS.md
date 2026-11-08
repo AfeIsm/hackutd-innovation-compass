@@ -35,5 +35,6 @@ use the editor.
 - Preserve same-site links on the preview origin, including paths not yet imported; only explicitly requested pages are captured.
 
 ## Wallet UI
+- Decorative falling bills are confined to the closed landing wallet and disabled for reduced motion; the persistent wallet layout retains navigation ownership.
 - The wallet scene, sign-in panel, flying card and top chrome live in the root layout (src/components/wallet/*); routes only render page content inside PageShell, so the wallet stays one continuous object across navigation.
 - Sign-in (src/lib/auth.tsx) and data (src/lib/demo-data.ts) are preview stand-ins with the production field shapes; swap them for the team's real API calls rather than adding logic to them. Money stays integer cents; null scores render "Needs input".
