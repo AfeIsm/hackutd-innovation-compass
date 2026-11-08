@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/lib/auth";
 import { useWallet } from "./WalletContext";
+import logo from "@/assets/wallet-whisperer-logo.png.asset.json";
 
 export function Chrome() {
   const { user, logout } = useAuth();
@@ -11,7 +12,8 @@ export function Chrome() {
     <header className="chrome">
       <Link
         to="/"
-        className="chrome-brand font-display"
+        className="chrome-brand"
+        aria-label="Wallet Whisperer home"
         onClick={(e) => {
           e.preventDefault();
           if (w.activeCard) w.backToWallet();
@@ -21,7 +23,7 @@ export function Chrome() {
           }
         }}
       >
-        Wallet Whisperer
+        <img src={logo.url} alt="Wallet Whisperer" width={56} height={56} />
       </Link>
       {user && (
         <button

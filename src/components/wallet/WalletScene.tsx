@@ -4,32 +4,36 @@ import { CardFace } from "./CardFace";
 import { CARDS, SLOT_ORDER, type CardId } from "./cards";
 import { IdCard } from "./IdCard";
 import { MOTION, useWallet } from "./WalletContext";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import leatherTexture from "@/assets/wallet-leather.jpg";
+import { FallingBills } from "./FallingBills";
 
-const HALF_W = 440;
-const H = 470;
+const HALF_W = 540;
+const H = 420;
 
-function useStageScale() {
+function useStageScale(open: boolean) {
   const [state, setState] = useState({ scale: 1, phone: false });
   useEffect(() => {
     const calc = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const phone = vw < 820;
-      const needed = phone ? HALF_W + 24 : HALF_W * 2 + 80;
-      const scale = Math.min(1, (vw - 24) / needed, (vh - 170) / (H + 50));
-      setState({ scale: Math.max(scale, 0.62), phone });
+      const phone = vw < 1000;
+      const needed = !open || phone ? HALF_W : HALF_W * 2 + 80;
+      const scale = Math.min(1, (vw - 40) / needed, (vh - 220) / (H + 50));
+      setState({ scale: Math.max(scale, 0.3), phone });
     };
     calc();
     window.addEventListener("resize", calc);
     return () => window.removeEventListener("resize", calc);
-  }, []);
+  }, [open]);
   return state;
 }
 
 export function WalletScene() {
   const { user } = useAuth();
   const w = useWallet();
-  const { scale, phone } = useStageScale();
+  const { scale, phone } = useStageScale(w.open);
   const startBtn = useRef<HTMLButtonElement>(null);
   const idRef = useRef<HTMLButtonElement>(null);
   const pageOpen = w.activeCard !== null;
@@ -57,6 +61,8 @@ export function WalletScene() {
       aria-hidden={pageOpen || undefined}
       inert={pageOpen || undefined}
     >
+      {!w.open && !pageOpen && <FallingBills />}
+      <div className="wallet-frame" style={{ width: (phone || !w.open ? HALF_W : HALF_W * 2) * scale, height: H * scale }}>
       <div
         className="wallet"
         data-open={w.open}
@@ -70,6 +76,7 @@ export function WalletScene() {
       >
         {/* Right interior: cash compartment + four card slots */}
         <section className="wallet-half wallet-right leather" aria-label="Wallet pockets" inert={!w.open || undefined}>
+          <LeatherTexture />
           <div className="stitch" aria-hidden />
           <div className="cash-well" aria-hidden />
           <div className="pockets">
@@ -89,6 +96,7 @@ export function WalletScene() {
           style={{ transform: w.open ? "rotateY(0deg)" : "rotateY(180deg)", transitionDuration: `${dur}ms` }}
         >
           <section className="flap-face flap-inside leather" aria-label="ID pocket" inert={!w.open || undefined}>
+            <LeatherTexture />
             <div className="stitch" aria-hidden />
             <div className="id-window">
               <IdCard ref={idRef} />
@@ -98,6 +106,7 @@ export function WalletScene() {
             </div>
           </section>
           <section className="flap-face flap-outside leather" aria-label="Wallet Whisperer" inert={w.open || undefined}>
+            <LeatherTexture />
             <div className="stitch" aria-hidden />
             <div className="cover-content">
               <h1 className="emboss font-display">
@@ -106,14 +115,14 @@ export function WalletScene() {
                 Whisperer
               </h1>
               <p className="cover-tag">Can we afford it?</p>
-              <button ref={startBtn} type="button" className="start-btn" onClick={start}>
-                Start saving
-              </button>
             </div>
           </section>
         </div>
         <div className="wallet-fold" aria-hidden />
       </div>
+      </div>
+
+      {!w.open && <Button ref={startBtn} type="button" className="start-btn" onClick={start}>Start Saving <ArrowRight aria-hidden="true" /></Button>}
 
       {phone && w.open && !pageOpen && (
         <button type="button" className="side-toggle" onClick={() => w.setSide(w.side === "left" ? "right" : "left")}>
@@ -122,6 +131,10 @@ export function WalletScene() {
       )}
     </div>
   );
+}
+
+function LeatherTexture() {
+  return <img className="leather-texture" src={leatherTexture} alt="" aria-hidden="true" width={1024} height={1024} />;
 }
 
 function NavObject({ id, index }: { id: CardId; index: number }) {
