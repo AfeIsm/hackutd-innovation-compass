@@ -1,4 +1,5 @@
 # Wallet Whisperer redesign
+- [ ] Widen and refine leather wallet, install home logo and favicon, add landing falling bills, move Start Saving below wallet, darken background
 - [x] Closed wallet landing, unfold, ID-card login/signup, open-wallet hub with five navigation objects
 - [x] Card lift, extraction, expansion into page, and return to slot; logout closes the wallet
 - [x] My Money redesigned as an expanded card (sample data)
