@@ -14,7 +14,7 @@ export function PageShell({
   children,
 }: {
   id: CardId;
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   intro?: ReactNode;
   actions?: ReactNode;
@@ -34,8 +34,8 @@ export function PageShell({
             <button type="button" className="back-btn" onClick={w.backToWallet}>
               ← Back to wallet
             </button>
-            <p className="page-eyebrow">{eyebrow}</p>
-            <h1 className="page-title font-display">{user || !ready ? title : CARDS[id].title}</h1>
+            {eyebrow && <p className="page-eyebrow">{eyebrow}</p>}
+            {title && <h1 className="page-title font-display">{user || !ready ? title : CARDS[id].title}</h1>}
             {user && intro && <div className="page-intro">{intro}</div>}
             {user && actions && <div className="mt-4 flex flex-wrap gap-3">{actions}</div>}
           </div>

@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { PageShell } from "@/components/wallet/PageShell";
-import { SampleBadge } from "@/components/ui-bits";
 import { SAMPLE_ACCOUNTS, SAMPLE_HEALTH } from "@/lib/demo-data";
 import { formatCents, formatScore, parseDollarsToCents } from "@/lib/money";
 
@@ -42,7 +41,7 @@ function BuyPage() {
   };
 
   return (
-    <PageShell id="buy" eyebrow="What if" title="Can I buy it?" intro={<span className="flex flex-wrap items-center gap-3"><SampleBadge /> We re-score your money as if you already bought it.</span>}>
+    <PageShell id="buy" title={null}>
       <div className="grid gap-6 lg:grid-cols-[400px_1fr]">
         <form className="paper-card grid gap-4" onSubmit={submit} noValidate>
           <div>
