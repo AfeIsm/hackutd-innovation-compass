@@ -144,7 +144,8 @@ function NavObject({ id, index }: { id: CardId; index: number }) {
   const top = isCash ? -38 : 112 + index * 62;
   return (
     <>
-      <button
+      <Button
+        variant="ghost"
         type="button"
         ref={(el) => w.registerSlot(id, el)}
         className={`nav-object ${isCash ? "is-cash" : "is-card"}`}
@@ -153,7 +154,7 @@ function NavObject({ id, index }: { id: CardId; index: number }) {
         aria-label={`${CARDS[id].title} — ${CARDS[id].hint}`}
       >
         <CardFace id={id} />
-      </button>
+      </Button>
       {isCash ? (
         <div className="cash-pocket" aria-hidden />
       ) : (

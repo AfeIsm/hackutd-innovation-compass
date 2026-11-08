@@ -67,6 +67,7 @@ export function FlightLayer() {
     <div className="flight-layer" aria-hidden>
       <div
         className={`flight-card ${flight.id === "buy" ? "is-cash" : ""}`}
+        data-phase={flight.phase}
         style={{ ...style, transitionDuration: `${ms}ms` }}
       >
         <CardFace id={flight.id} />
