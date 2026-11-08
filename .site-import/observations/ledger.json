@@ -1,0 +1,418 @@
+[
+  {
+    "site": "source",
+    "viewport": "desktop",
+    "route": "/",
+    "state": {
+      "html": "LINzvG_variable qeW00a_variable h-full antialiased",
+      "body": "min-h-full font-sans",
+      "height": 1800,
+      "width": 1280,
+      "scrollY": 0,
+      "controls": [
+        {
+          "tag": "A",
+          "text": "Wallet Whisperer",
+          "href": "/"
+        },
+        {
+          "tag": "A",
+          "text": "Log in",
+          "href": "/login"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        }
+      ],
+      "sections": [
+        {
+          "tag": "HEADER",
+          "text": "Wallet Whisperer\nLog in\nGet started",
+          "bounds": {
+            "x": 84,
+            "y": 0,
+            "width": 1112,
+            "height": 88,
+            "top": 0,
+            "right": 1196,
+            "bottom": 88,
+            "left": 84
+          }
+        },
+        {
+          "tag": "MAIN",
+          "text": "Can we afford it?\n\nSee your whole financial picture, get a health score that updates itself, and plan big purchases with family and friends without sharing your finances.\n\nGet started\nYour health score\nHealthy\n82\n/ 100\nBills covered\nSafety cushion\nSavings protected\nOrlando trip \u00b7 3 of 4 committed",
+          "bounds": {
+            "x": 84,
+            "y": 88,
+            "width": 1112,
+            "height": 1643,
+            "top": 88,
+            "right": 1196,
+            "bottom": 1731,
+            "left": 84
+          }
+        },
+        {
+          "tag": "FOOTER",
+          "text": "\u00a9 2026 Wallet Whisperer\nYour finances stay private. Always.",
+          "bounds": {
+            "x": 84,
+            "y": 1731,
+            "width": 1112,
+            "height": 69,
+            "top": 1731,
+            "right": 1196,
+            "bottom": 1800,
+            "left": 84
+          }
+        }
+      ],
+      "bottom": 0,
+      "errors": []
+    }
+  },
+  {
+    "site": "source",
+    "viewport": "phone",
+    "route": "/",
+    "state": {
+      "html": "LINzvG_variable qeW00a_variable h-full antialiased",
+      "body": "min-h-full font-sans",
+      "height": 1087,
+      "width": 390,
+      "scrollY": 0,
+      "controls": [
+        {
+          "tag": "A",
+          "text": "Wallet Whisperer",
+          "href": "/"
+        },
+        {
+          "tag": "A",
+          "text": "Log in",
+          "href": "/login"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        }
+      ],
+      "sections": [
+        {
+          "tag": "HEADER",
+          "text": "Wallet Whisperer\nLog in\nGet started",
+          "bounds": {
+            "x": 24,
+            "y": 0,
+            "width": 342,
+            "height": 112,
+            "top": 0,
+            "right": 366,
+            "bottom": 112,
+            "left": 24
+          }
+        },
+        {
+          "tag": "MAIN",
+          "text": "Can we afford it?\n\nSee your whole financial picture, get a health score that updates itself, and plan big purchases with family and friends without sharing your finances.\n\nGet started\nYour health score\nHealthy\n82\n/ 100\nBills covered\nSafety cushion\nSavings protected\nOrlando trip \u00b7 3 of 4 committed",
+          "bounds": {
+            "x": 24,
+            "y": 112,
+            "width": 342,
+            "height": 873.75,
+            "top": 112,
+            "right": 366,
+            "bottom": 985.75,
+            "left": 24
+          }
+        },
+        {
+          "tag": "FOOTER",
+          "text": "\u00a9 2026 Wallet Whisperer\nYour finances stay private. Always.",
+          "bounds": {
+            "x": 24,
+            "y": 985.75,
+            "width": 342,
+            "height": 101,
+            "top": 985.75,
+            "right": 366,
+            "bottom": 1086.75,
+            "left": 24
+          }
+        }
+      ],
+      "bottom": 243,
+      "errors": []
+    }
+  },
+  {
+    "site": "preview",
+    "viewport": "desktop",
+    "route": "/",
+    "state": {
+      "html": "LINzvG_variable qeW00a_variable h-full antialiased",
+      "body": "min-h-full font-sans",
+      "height": 1800,
+      "width": 1280,
+      "scrollY": 0,
+      "controls": [
+        {
+          "tag": "A",
+          "text": "Wallet Whisperer",
+          "href": "/"
+        },
+        {
+          "tag": "A",
+          "text": "Log in",
+          "href": "/login"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        }
+      ],
+      "sections": [
+        {
+          "tag": "HEADER",
+          "text": "Wallet Whisperer\nLog in\nGet started",
+          "bounds": {
+            "x": 84,
+            "y": 0,
+            "width": 1112,
+            "height": 88,
+            "top": 0,
+            "right": 1196,
+            "bottom": 88,
+            "left": 84
+          }
+        },
+        {
+          "tag": "MAIN",
+          "text": "Can we afford it?\n\nSee your whole financial picture, get a health score that updates itself, and plan big purchases with family and friends without sharing your finances.\n\nGet started\nYour health score\nHealthy\n82\n/ 100\nBills covered\nSafety cushion\nSavings protected\nOrlando trip \u00b7 3 of 4 committed",
+          "bounds": {
+            "x": 84,
+            "y": 88,
+            "width": 1112,
+            "height": 1643,
+            "top": 88,
+            "right": 1196,
+            "bottom": 1731,
+            "left": 84
+          }
+        },
+        {
+          "tag": "FOOTER",
+          "text": "\u00a9 2026 Wallet Whisperer\nYour finances stay private. Always.",
+          "bounds": {
+            "x": 84,
+            "y": 1731,
+            "width": 1112,
+            "height": 69,
+            "top": 1731,
+            "right": 1196,
+            "bottom": 1800,
+            "left": 84
+          }
+        }
+      ],
+      "bottom": 0,
+      "errors": []
+    }
+  },
+  {
+    "site": "preview",
+    "viewport": "phone",
+    "route": "/",
+    "state": {
+      "html": "LINzvG_variable qeW00a_variable h-full antialiased",
+      "body": "min-h-full font-sans",
+      "height": 1087,
+      "width": 390,
+      "scrollY": 0,
+      "controls": [
+        {
+          "tag": "A",
+          "text": "Wallet Whisperer",
+          "href": "/"
+        },
+        {
+          "tag": "A",
+          "text": "Log in",
+          "href": "/login"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        },
+        {
+          "tag": "A",
+          "text": "Get started",
+          "href": "/signup"
+        }
+      ],
+      "sections": [
+        {
+          "tag": "HEADER",
+          "text": "Wallet Whisperer\nLog in\nGet started",
+          "bounds": {
+            "x": 24,
+            "y": 0,
+            "width": 342,
+            "height": 112,
+            "top": 0,
+            "right": 366,
+            "bottom": 112,
+            "left": 24
+          }
+        },
+        {
+          "tag": "MAIN",
+          "text": "Can we afford it?\n\nSee your whole financial picture, get a health score that updates itself, and plan big purchases with family and friends without sharing your finances.\n\nGet started\nYour health score\nHealthy\n82\n/ 100\nBills covered\nSafety cushion\nSavings protected\nOrlando trip \u00b7 3 of 4 committed",
+          "bounds": {
+            "x": 24,
+            "y": 112,
+            "width": 342,
+            "height": 873.75,
+            "top": 112,
+            "right": 366,
+            "bottom": 985.75,
+            "left": 24
+          }
+        },
+        {
+          "tag": "FOOTER",
+          "text": "\u00a9 2026 Wallet Whisperer\nYour finances stay private. Always.",
+          "bounds": {
+            "x": 24,
+            "y": 985.75,
+            "width": 342,
+            "height": 101,
+            "top": 985.75,
+            "right": 366,
+            "bottom": 1086.75,
+            "left": 24
+          }
+        }
+      ],
+      "bottom": 243,
+      "errors": []
+    }
+  },
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "brand",
+    "expected": "http://localhost:8080/",
+    "observed": "http://localhost:8080/",
+    "status": "passed destination check",
+    "note": "Returns to home",
+    "screenshot": "preview-desktop-brand.png"
+  },
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "login",
+    "expected": "http://localhost:8080/login",
+    "observed": "http://localhost:8080/login",
+    "status": "passed destination check",
+    "note": "Destination page not imported",
+    "screenshot": "preview-desktop-login.png"
+  },
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "header-cta",
+    "expected": "http://localhost:8080/signup",
+    "observed": "http://localhost:8080/signup",
+    "status": "passed destination check",
+    "note": "Destination page not imported",
+    "screenshot": "preview-desktop-header-cta.png"
+  },
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "hero-cta",
+    "expected": "http://localhost:8080/signup",
+    "observed": "http://localhost:8080/signup",
+    "status": "passed destination check",
+    "note": "Destination page not imported",
+    "screenshot": "preview-desktop-hero-cta.png"
+  },
+  {
+    "route": "/",
+    "viewport": "phone",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "brand",
+    "expected": "http://localhost:8080/",
+    "observed": "http://localhost:8080/",
+    "status": "passed destination check",
+    "note": "Returns to home",
+    "screenshot": "preview-phone-brand.png"
+  },
+  {
+    "route": "/",
+    "viewport": "phone",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "login",
+    "expected": "http://localhost:8080/login",
+    "observed": "http://localhost:8080/login",
+    "status": "passed destination check",
+    "note": "Destination page not imported",
+    "screenshot": "preview-phone-login.png"
+  },
+  {
+    "route": "/",
+    "viewport": "phone",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "header-cta",
+    "expected": "http://localhost:8080/signup",
+    "observed": "http://localhost:8080/signup",
+    "status": "passed destination check",
+    "note": "Destination page not imported",
+    "screenshot": "preview-phone-header-cta.png"
+  },
+  {
+    "route": "/",
+    "viewport": "phone",
+    "scrollContainer": "document",
+    "scrollPosition": 0,
+    "trigger": "hero-cta",
+    "expected": "http://localhost:8080/signup",
+    "observed": "http://localhost:8080/signup",
+    "status": "passed destination check",
+    "note": "Destination page not imported",
+    "screenshot": "preview-phone-hero-cta.png"
+  }
+]

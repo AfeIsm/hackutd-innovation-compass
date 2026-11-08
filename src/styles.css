@@ -153,3 +153,92 @@
     color: var(--color-foreground);
   }
 }
+
+/* site-import tokens: begin (generated; re-import replaces this block) */
+/* Imported clone roles use prefixed Tailwind utilities
+   (bg-site-import-primary, text-site-import-foreground, …); edit the
+   --site-import-* variables to restyle the clone. Unprefixed roles theme new UI. */
+:root {
+  --background: oklch(0.97231 0.00397 106.47);
+  --site-import-background: oklch(0.97231 0.00397 106.47);
+  --foreground: oklch(0.20912 0.01038 268.19);
+  --site-import-foreground: oklch(0.20912 0.01038 268.19);
+  --primary: oklch(0.49053 0.21564 264.52);
+  --site-import-primary: oklch(0.49053 0.21564 264.52);
+  --primary-foreground: oklch(0.985 0 0);
+  --site-import-primary-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.57111 0.13731 152.62);
+  --site-import-accent: oklch(0.57111 0.13731 152.62);
+  --border: oklch(0.91443 0.00671 106.53);
+  --site-import-border: oklch(0.91443 0.00671 106.53);
+  --muted-foreground: oklch(0.48858 0.01867 266.14);
+  --site-import-muted-foreground: oklch(0.48858 0.01867 266.14);
+  --card: oklch(0.9417 0.00666 106.53);
+  --site-import-card: oklch(0.9417 0.00666 106.53);
+}
+/* Design tokens captured from the imported site, registered as Tailwind
+   utilities (bg-<name>, text-<name>, font-<name>). var() values live in
+   the imported stylesheet's :root. */
+@theme inline {
+  --font-sans: Inter, "Inter Fallback", system-ui, sans-serif;
+  --color-site-import-background: var(--site-import-background);
+  --color-site-import-foreground: var(--site-import-foreground);
+  --color-site-import-primary: var(--site-import-primary);
+  --color-site-import-primary-foreground: var(--site-import-primary-foreground);
+  --color-site-import-accent: var(--site-import-accent);
+  --color-site-import-border: var(--site-import-border);
+  --color-site-import-muted-foreground: var(--site-import-muted-foreground);
+  --color-site-import-card: var(--site-import-card);
+}
+@theme reference {
+  --color-accent: #1f4fd8;
+  --color-accent-bg: #f3f6fe;
+  --color-accent-dark: #163ba6;
+  --color-bad: #b4231b;
+  --color-bad-bg: #fbe4e2;
+  --color-bad-ring: #d2382e;
+  --color-bg: #f6f6f3;
+  --color-good: #12703a;
+  --color-good-bg: #e3f4e8;
+  --color-good-ring: #1e8e4e;
+  --color-hover: #f0f0ec;
+  --color-ink: #16181d;
+  --color-ink-2: #3d424c;
+  --color-line: #e3e3de;
+  --color-line-2: #cfcfc8;
+  --color-muted: #5b606b;
+  --color-soft: #ecece7;
+  --color-surface: #fff;
+  --color-warn: #8a5300;
+  --color-warn-bg: #fdf1d8;
+  --color-warn-ring: #d48a0c;
+  --font-display: "Space Grotesk", "Space Grotesk Fallback", "Inter", "Inter Fallback", sans-serif;
+  --font-inter: "Inter", "Inter Fallback";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-space-grotesk: "Space Grotesk", "Space Grotesk Fallback";
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-snug: 1.375;
+  --leading-tight: 1.25;
+  --radius-2xl: 1rem;
+  --radius-lg: .5rem;
+  --radius-xl: .75rem;
+  --spacing: .25rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-sm: .875rem;
+  --text-sm--line-height: calc(1.25 / .875);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-xs: .75rem;
+  --text-xs--line-height: calc(1 / .75);
+}
+/* site-import tokens: end */
