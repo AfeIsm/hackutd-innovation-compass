@@ -6,6 +6,7 @@ import { StatusPill } from "@/components/ui-bits";
 import { HOUSEHOLD_MEMBERS, SAMPLE_ACCOUNTS, SAMPLE_HEALTH, SAMPLE_PAYCHECK } from "@/lib/demo-data";
 import { formatCents, formatScore } from "@/lib/money";
 import { USERNAME_RULE } from "@/lib/auth";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/household")({
   head: () => ({
@@ -34,19 +35,20 @@ function HouseholdPage() {
   const [idx, setIdx] = useState(0);
   const [share, setShare] = useState<Record<string, boolean>>({});
   const [invite, setInvite] = useState({ username: "", role: "Dependent" });
-  const m = HOUSEHOLD_MEMBERS[idx]!;
+  const m = HOUSEHOLD_MEMBERS[idx];
+  if (!m) return null;
   const isMe = idx === 0;
 
   return (
     <PageShell
       id="household"
-      eyebrow="Your household"
+      eyebrow="HackUTD 2026 · Your household"
       title="Household"
       intro="Each person controls what they share. Joining a household never shares finances automatically."
-      actions={<button type="button" className="btn-ghost" onClick={() => toast("Leaving isn't connected in this preview")}>Leave household</button>}
+      actions={<Button type="button" variant="outline" className="household-leave" onClick={() => toast("Leaving isn't connected in this preview")}>Leave household</Button>}
     >
-      <div className="grid gap-6">
-        <section className="paper-card">
+      <div className="household-layout">
+        <section className="household-overview">
           <div className="flex items-center justify-between">
             <div><p className="eyebrow">Household at a glance</p><p className="text-muted-foreground">{m.name}{isMe ? " (you)" : ""} · {idx + 1} of {HOUSEHOLD_MEMBERS.length}</p></div>
             <div className="flex gap-2">
@@ -63,8 +65,8 @@ function HouseholdPage() {
               <>
                 <div className="mt-4 flex items-center gap-3"><span className="font-display text-5xl">{formatScore(SAMPLE_HEALTH.score)}</span><StatusPill status={SAMPLE_HEALTH.status} /></div>
                 <dl className="mt-4 grid gap-2">
-                  <Row k="Checking" v={formatCents(SAMPLE_ACCOUNTS[0]!.balanceCents)} />
-                  <Row k="Savings" v={formatCents(SAMPLE_ACCOUNTS[1]!.balanceCents)} />
+                  <Row k="Checking" v={formatCents(SAMPLE_ACCOUNTS[0]?.balanceCents ?? 0)} />
+                  <Row k="Savings" v={formatCents(SAMPLE_ACCOUNTS[1]?.balanceCents ?? 0)} />
                   <Row k="Next payday" v={`${SAMPLE_PAYCHECK.next} · ${formatCents(SAMPLE_PAYCHECK.amountCents)}`} />
                 </dl>
               </>
@@ -83,7 +85,7 @@ function HouseholdPage() {
           </div>
         </section>
 
-        <section className="paper-card">
+        <section className="household-sharing">
           <h2 className="section-title font-display">What I share with my household</h2>
           <p className="mt-2 text-muted-foreground">Only selected categories are visible to other accepted members, including the owner. Changes save automatically. Your own view always shows your data.</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -97,7 +99,7 @@ function HouseholdPage() {
         </section>
 
         <form
-          className="paper-card"
+          className="household-invite"
           noValidate
           onSubmit={(e) => {
             e.preventDefault();
@@ -119,7 +121,7 @@ function HouseholdPage() {
               <option>Dependent</option><option>Spouse</option>
             </select>
           </label>
-          <button type="submit" className="btn-primary mt-4 w-full" disabled={!invite.username.trim()}>Send request</button>
+          <Button type="submit" className="hack-create mt-4 w-full" disabled={!invite.username.trim()}>Send request</Button>
         </form>
       </div>
     </PageShell>
