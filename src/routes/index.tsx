@@ -2,7 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/site.css?raw";
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Wallet Whisperer" }] }),
+  head: () => ({ meta: [
+    { title: "Wallet Whisperer — Can we afford it?" },
+    { name: "description", content: "See your financial picture, track your health score, and plan big purchases with family and friends while keeping your finances private." },
+    { property: "og:title", content: "Wallet Whisperer — Can we afford it?" },
+    { property: "og:description", content: "See your financial picture, track your health score, and plan big purchases with family and friends while keeping your finances private." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   staticData: { importedDocument: { html: { "className": "LINzvG_variable qeW00a_variable \x68-full \x61ntialiased", "lang": "en" }, body: { "className": "\x6din-h-full \x66ont-sans" } } },
   component: Index,
 });
