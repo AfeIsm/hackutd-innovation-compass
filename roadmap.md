@@ -1,4 +1,5 @@
 # Wallet Whisperer redesign
+- [ ] Simplify cash artwork, restore NVIDIA Huddles and apply HackUTD to Household
 - [x] Refine falling bills, background, folding cash, HackUTD Huddles and interior lettering
 - [x] Widen and refine leather wallet, install home logo and favicon, add landing falling bills, move Start Saving below wallet, darken background
 - [x] Closed wallet landing, unfold, ID-card login/signup, open-wallet hub with five navigation objects
