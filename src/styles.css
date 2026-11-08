@@ -333,7 +333,7 @@ body {
 :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
 
 /* ---- stage ---- */
-.wallet-stage { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; perspective: 2400px; transition: opacity 400ms ease, filter 400ms ease, transform 500ms ease; z-index: 1; }
+.wallet-stage { position: fixed; inset: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; perspective: 2400px; transition: opacity 400ms ease, filter 400ms ease, transform 500ms ease; z-index: 1; }
 .wallet-stage.is-secondary { opacity: 0.28; filter: blur(3px) saturate(0.7); transform: scale(0.95); pointer-events: none; }
 .wallet { position: relative; transform-style: preserve-3d; transition-property: transform; transition-timing-function: cubic-bezier(0.65, 0, 0.25, 1); flex: none; }
 .wallet-half, .wallet-flap { position: absolute; top: 0; width: 50%; height: 100%; }
