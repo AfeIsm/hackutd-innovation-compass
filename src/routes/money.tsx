@@ -89,7 +89,7 @@ function HealthSection() {
         <p className="mt-2 text-xs text-muted-foreground">Every check is saved to your history.</p>
       </div>
 
-      <div className="paper-card">
+      <div className="paper-card min-w-0">
         <div className="flex items-baseline justify-between gap-4">
           <h2 className="section-title font-display">What makes up your score</h2>
           <span className="text-sm text-muted-foreground">points × weight</span>

@@ -72,12 +72,14 @@ export function WalletScene() {
         <section className="wallet-half wallet-right leather" aria-label="Wallet pockets" inert={!w.open || undefined}>
           <div className="stitch" aria-hidden />
           <div className="cash-well" aria-hidden />
+          <div className="pockets">
           <NavObject id="buy" index={-1} />
           {SLOT_ORDER.map((id, i) => (
             <NavObject key={id} id={id} index={i} />
           ))}
           <div className="slot-pocket slot-pocket-base" style={{ top: 112 + 3 * 62 + 50, zIndex: 20 }} aria-hidden>
             <span className="pocket-emboss font-display">Your finances stay private.</span>
+          </div>
           </div>
         </section>
 

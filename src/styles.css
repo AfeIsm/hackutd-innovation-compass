@@ -526,3 +526,6 @@ button.id-card:hover, button.id-card:focus-visible { transform: translateY(-8px)
   .nav-object, .id-card, .start-btn { transition-duration: 80ms; }
   .id-card.is-filled { animation: none; }
 }
+.pockets { position: absolute; inset: 0; clip-path: inset(-90px -40px 0 -40px round 0 0 22px 6px); }
+.btn-ghost { color: var(--foreground); }
+.page-body > * > * { min-width: 0; }
