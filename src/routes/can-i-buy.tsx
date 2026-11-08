@@ -38,7 +38,7 @@ function BuyPage() {
     if (!f.name.trim()) return setErr("Tell us what it is.");
     if (cents === null) return setErr("Enter a cost like 900.");
     setErr(null);
-    setResult({ kind: cents > AVAILABLE[f.account] ? "no" : "engine", cents });
+    setResult({ kind: cents > (AVAILABLE[f.account] ?? 0) ? "no" : "engine", cents });
   };
 
   return (
@@ -58,7 +58,7 @@ function BuyPage() {
           <label className="grid gap-1 text-sm font-semibold">When<input type="date" className="field-input font-normal" value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></label>
           <label className="grid gap-1 text-sm font-semibold">Pay from
             <select className="field-input font-normal" value={f.account} onChange={(e) => setF({ ...f, account: e.target.value })}>
-              {cash.map((a) => <option key={a.accountId} value={a.accountId}>{a.label} · {formatCents(AVAILABLE[a.accountId])}{a.type === "savings" ? " unallocated" : ""}</option>)}
+              {cash.map((a) => <option key={a.accountId} value={a.accountId}>{a.label} · {formatCents(AVAILABLE[a.accountId] ?? 0)}{a.type === "savings" ? " unallocated" : ""}</option>)}
             </select>
           </label>
           {err && <p role="alert" className="text-sm text-risk">{err}</p>}

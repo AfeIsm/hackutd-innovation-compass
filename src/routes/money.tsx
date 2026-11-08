@@ -210,29 +210,30 @@ function Accounts() {
 }
 
 function Forecast() {
-  const pts = SAMPLE_FORECAST;
+  const pts = SAMPLE_FORECAST as { label: string; cents: number }[];
+  const at = (i: number) => pts[i]!;
   const W = 600, Hh = 220, pad = 10;
   const max = Math.max(...pts.map((p) => p.cents), 20000);
   const min = Math.min(0, ...pts.map((p) => p.cents));
   const y = (c: number) => pad + (Hh - pad * 2) * (1 - (c - min) / (max - min));
   const x = (i: number) => (i / (pts.length - 1)) * W;
-  let d = `M0 ${y(pts[0].cents)}`;
+  let d = `M0 ${y(at(0).cents)}`;
   pts.forEach((p, i) => { if (i) d += ` H${x(i)} V${y(p.cents)}`; });
-  const lowIdx = pts.reduce((lo, p, i) => (p.cents < pts[lo].cents ? i : lo), 0);
+  const lowIdx = pts.reduce((lo, p, i) => (p.cents < at(lo).cents ? i : lo), 0);
   return (
     <section className="paper-card">
       <div className="flex items-baseline justify-between">
         <h2 className="section-title font-display">Next 30 days in checking</h2>
         <span className="text-sm text-muted-foreground">paychecks minus bills</span>
       </div>
-      <svg viewBox={`0 0 ${W} ${Hh}`} className="mt-4 w-full" role="img" aria-label={`Checking forecast. Lowest ${formatCents(pts[lowIdx].cents)} on ${pts[lowIdx].label}.`}>
+      <svg viewBox={`0 0 ${W} ${Hh}`} className="mt-4 w-full" role="img" aria-label={`Checking forecast. Lowest ${formatCents(at(lowIdx).cents)} on ${at(lowIdx).label}.`}>
         <line x1="0" x2={W} y1={y(20000)} y2={y(20000)} className="chart-buffer" />
         <line x1="0" x2={W} y1={y(0)} y2={y(0)} className="chart-zero" />
         <path d={d} className="chart-line" />
-        <circle cx={x(lowIdx)} cy={y(pts[lowIdx].cents)} r="6" className="chart-dot" />
+        <circle cx={x(lowIdx)} cy={y(at(lowIdx).cents)} r="6" className="chart-dot" />
       </svg>
       <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
-        <span>Lowest: <b>{formatCents(pts[lowIdx].cents)} on {pts[lowIdx].label}</b></span>
+        <span>Lowest: <b>{formatCents(at(lowIdx).cents)} on {at(lowIdx).label}</b></span>
         <span className="text-watch">- - $200 buffer</span>
         <span className="text-risk">— $0</span>
       </p>
@@ -278,7 +279,7 @@ function Bills() {
 function PurchasesAndChecks() {
   const [where, setWhere] = useState("");
   const [amount, setAmount] = useState("");
-  const [from, setFrom] = useState(SAMPLE_ACCOUNTS[1].accountId);
+  const [from, setFrom] = useState(SAMPLE_ACCOUNTS[1]!.accountId);
   const [err, setErr] = useState<string | null>(null);
   const cash = SAMPLE_ACCOUNTS.filter((a) => a.type !== "credit");
   const submit = (e: FormEvent) => {

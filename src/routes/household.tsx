@@ -34,7 +34,7 @@ function HouseholdPage() {
   const [idx, setIdx] = useState(0);
   const [share, setShare] = useState<Record<string, boolean>>({});
   const [invite, setInvite] = useState({ username: "", role: "Dependent" });
-  const m = HOUSEHOLD_MEMBERS[idx];
+  const m = HOUSEHOLD_MEMBERS[idx]!;
   const isMe = idx === 0;
 
   return (
@@ -63,8 +63,8 @@ function HouseholdPage() {
               <>
                 <div className="mt-4 flex items-center gap-3"><span className="font-display text-5xl">{formatScore(SAMPLE_HEALTH.score)}</span><StatusPill status={SAMPLE_HEALTH.status} /></div>
                 <dl className="mt-4 grid gap-2">
-                  <Row k="Checking" v={formatCents(SAMPLE_ACCOUNTS[0].balanceCents)} />
-                  <Row k="Savings" v={formatCents(SAMPLE_ACCOUNTS[1].balanceCents)} />
+                  <Row k="Checking" v={formatCents(SAMPLE_ACCOUNTS[0]!.balanceCents)} />
+                  <Row k="Savings" v={formatCents(SAMPLE_ACCOUNTS[1]!.balanceCents)} />
                   <Row k="Next payday" v={`${SAMPLE_PAYCHECK.next} · ${formatCents(SAMPLE_PAYCHECK.amountCents)}`} />
                 </dl>
               </>
@@ -102,7 +102,10 @@ function HouseholdPage() {
           onSubmit={(e) => {
             e.preventDefault();
             const u = invite.username.trim().replace(/^@/, "").toLowerCase();
-            if (!USERNAME_RULE.test(u)) return toast.error("Usernames are 3–20 letters, numbers, _ or .");
+            if (!USERNAME_RULE.test(u)) {
+              toast.error("Usernames are 3–20 letters, numbers, _ or .");
+              return;
+            }
             toast(`Invite sent to @${u} as ${invite.role}`, { description: "Preview only — they'd accept on their own device." });
             setInvite({ ...invite, username: "" });
           }}

@@ -53,7 +53,7 @@ function FriendsPage() {
           <ul className="mt-2 divide-y divide-border">
             {friends.map((f) => (
               <li key={f.username} className="flex items-center gap-3 py-3">
-                <span className="avatar avatar-cap">{f.username[0].toUpperCase()}</span>
+                <span className="avatar avatar-cap">{f.username.charAt(0).toUpperCase()}</span>
                 <div className="flex-1"><p className="font-semibold capitalize">{f.username}</p><p className="text-sm text-muted-foreground">@{f.username}</p></div>
                 <span className={`pill ${f.status === "Accepted" ? "pill-healthy" : "pill-needsInput"}`}>{f.status}</span>
               </li>
